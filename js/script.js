@@ -45,6 +45,9 @@ const rows = 10;
 const cols = 10;
 const totCell = rows * cols;
 
+let score = 0;
+
+
 //FUNZIONI
 
 const createCell = () => {
@@ -68,6 +71,10 @@ const startGame = () => {
         cell.addEventListener('click', () => {
         cell.classList.toggle('clicked');
         console.log(cell.innerText)
+
+        scorePlayer.innerText = ++score;
+        console.log('punteggio:', score)
+
         })
        
         //aggiungo in pagina la cella
@@ -79,11 +86,9 @@ const startGame = () => {
 button.addEventListener('click', startGame)
 
 /*# MILESTONE 1
-Prepariamo "qualcosa" per tenere il punteggio dell'utente.
-Quando l'utente clicca su una cella, incrementiamo il punteggio.
-Se riusciamo, facciamo anche in modo da non poter più cliccare la stessa cella.*/
+azzeriamo punteggio alla fine
+facciamo anche in modo da non poter più cliccare la stessa cella.*/
 
-let score = 0;
-
-scorePlayer.innerText += ++score;
-console.log('punteggio:', score)
+/*# MILESTONE 2
+Facciamo in modo di generare 16 numeri casuali (tutti diversi) compresi tra 1 e il massimo di caselle disponibili.
+Generiamoli e stampiamo in console per essere certi che siano corretti*/
