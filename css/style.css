@@ -1,0 +1,48 @@
+.container{
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: none;
+}
+
+.d-show{
+    display: block;
+
+}
+ 
+body{
+    background-color: #7FFED4;
+}
+ 
+header{
+   height: 70px;
+   padding: 0;
+   
+   line-height: 70px;
+   background-color: white;
+}
+ 
+#grid{
+    width: 500px;
+    height: 500px;
+    margin: 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+ 
+#grid .cell{
+  cursor: pointer;
+  width: calc(100% / 11);
+  height: calc(100% / 11);
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+ 
+.cell.clicked{
+    background-color: rgb(42, 193, 243);
+}
+ 
