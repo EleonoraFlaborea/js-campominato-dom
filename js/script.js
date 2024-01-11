@@ -38,6 +38,7 @@ const grid = document.getElementById('grid');
 const button = document.getElementById('button');
 
 const container = document.querySelector('.container');
+const scorePlayer =document.getElementById('score-player');
 
 
 const rows = 10;
@@ -76,4 +77,13 @@ const startGame = () => {
 
 // ADDEVENTLISTENER
 button.addEventListener('click', startGame)
-    
+
+/*# MILESTONE 1
+Prepariamo "qualcosa" per tenere il punteggio dell'utente.
+Quando l'utente clicca su una cella, incrementiamo il punteggio.
+Se riusciamo, facciamo anche in modo da non poter più cliccare la stessa cella.*/
+
+let score = 0;
+
+scorePlayer.innerText += ++score;
+console.log('punteggio:', score)
