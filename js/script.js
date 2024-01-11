@@ -41,25 +41,28 @@ const container = document.querySelector('.container');
 const scorePlayer =document.getElementById('score-player');
 
 
-const rows = 10;
-const cols = 10;
-const totCell = rows * cols;
-
-let score = 0;
-
-
-//FUNZIONI
-
-const createCell = () => {
-    const newCell = document.createElement('div');
-    newCell.className = ('cell')
-    return newCell;
-}
-
 const startGame = () => {
     button.innerText = 'Ricomincia';
     container.classList.add('d-show');
     grid.innerText = '';
+
+
+
+    const rows = 10;
+    const cols = 10;
+    const totCell = rows * cols;
+
+    let score = 0;
+    scorePlayer.innerText = score;
+
+
+    //FUNZIONI
+
+    const createCell = () => {
+       const newCell = document.createElement('div');
+       newCell.className = ('cell')
+       return newCell;
+    }
 
     for(let i = 0; i < totCell; i++){
    
@@ -85,8 +88,9 @@ const startGame = () => {
 // ADDEVENTLISTENER
 button.addEventListener('click', startGame)
 
+
+//TODO: COSE DA FINIRE
 /*# MILESTONE 1
-azzeriamo punteggio alla fine
 facciamo anche in modo da non poter più cliccare la stessa cella.*/
 
 /*# MILESTONE 2
