@@ -41,12 +41,17 @@ const container = document.querySelector('.container');
 const scorePlayer =document.getElementById('score-player');
 
 
+ 
 const startGame = () => {
     button.innerText = 'Ricomincia';
     container.classList.add('d-show');
     grid.innerText = '';
 
-
+    const createCell = () => {
+        const newCell = document.createElement('div');
+        newCell.className = ('cell')
+        return newCell;
+    }
 
     const rows = 10;
     const cols = 10;
@@ -56,14 +61,30 @@ const startGame = () => {
     scorePlayer.innerText = score;
 
 
-    //FUNZIONI
+   
+    
 
-    const createCell = () => {
-       const newCell = document.createElement('div');
-       newCell.className = ('cell')
-       return newCell;
+    //creare 16 numeri casuali
+    const generateBombs = (maxBomb, totalBombs) => {
+
+         // preparo variabili bombe
+         totalBombs = 16;
+         maxPoints = totCell - totalBombs;
+
+        const bombs = [ ];
+        while(bombs.length < totalBombs){
+            const randomNumber = Math.floor(Math.random () * (maxBomb))+1;
+            if(!bombs.includes(randomNumber))bombs.push(randomNumber);
+        }
+        console.log(bombs)
+        console.log(maxBomb, totalBombs)
+        return bombs;
+        
     }
 
+    bombs = generateBombs(totCell);
+
+    //numero celle
     for(let i = 0; i < totCell; i++){
    
         //creare cella
@@ -91,8 +112,15 @@ button.addEventListener('click', startGame)
 
 //TODO: COSE DA FINIRE
 /*# MILESTONE 1
-facciamo anche in modo da non poter più cliccare la stessa cella.*/
+facciamo anche in modo da non poter più cliccare la stessa cella.
 
-/*# MILESTONE 2
-Facciamo in modo di generare 16 numeri casuali (tutti diversi) compresi tra 1 e il massimo di caselle disponibili.
-Generiamoli e stampiamo in console per essere certi che siano corretti*/
+
+# MILESTONE 3
+Quando l'utente clicca su una cella, verifichiamo se ha calpestato una bomba, controllando se il numero di cella è presente nell'array di bombe. 
+
+Se si, la cella diventa rossa (raccogliamo il punteggio e scriviamo in console che la partita termina) altrimenti diventa azzurra e dobbiamo incrementare il punteggio.
+# MILESTONE 4
+Quando l'utente clicca su una cella, e questa non è una bomba, dobbiamo controllare se il punteggio incrementato ha raggiunto il punteggio massimo perchè in quel caso la partita termina. Raccogliamo quindi il messaggio è scriviamo un messaggio appropriato.
+(Ma come stabiliamo quale sia il punteggio massimo?)
+# MILESTONE 5
+Quando la partita termina dobbiamo capire se è terminata perchè è stata cliccata una bomba o se perchè l'utente ha raggiunto il punteggio massimo. Dobbiamo poi stampare in pagina il punteggio raggiunto ed il messaggio adeguato in caso di vittoria o sconfitta. */
