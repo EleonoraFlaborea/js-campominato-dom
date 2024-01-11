@@ -43,6 +43,10 @@ header{
 }
  
 .cell.clicked{
+    cursor: not-allowed;
     background-color: rgb(42, 193, 243);
 }
- 
+
+.cell.clicked.bomb{
+    background-color: red;
+}
